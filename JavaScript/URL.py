@@ -3,10 +3,12 @@ import tkinter as tk
 import random
 import base64
 def URL2JS(js, fakeurl=''):
+        if not fakeurl:
+                fakeurl='h'
         js='document.body.innerHTML = "";'+js
         js=base64.b64encode(js.encode('utf-8')).decode('utf-8')
         data='data:text/html,{url}{space}<script src=data:text/html;base64,{js}></script>'
-        space=' '*random.randint(200, 400) if fakeurl else ''
+        space=' '*random.randint(200, 400)
         return data.format(url=fakeurl, space=space, js=js)
 class GUI(ttk.Frame):
     def __init__(self, master=None):
