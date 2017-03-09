@@ -7,7 +7,7 @@ class GUI(tk.Tk):
         tk.Tk.__init__(self)
         menubar=tk.Menu(self)
         self['menu']=menubar
-        self.current=JavaScript.XSS.GUI(self)
+        self.current=JavaScript.URL.GUI(self)
         self.current.pack()
         jsmenu=tk.Menu(menubar)
         jsmenu.add_command(label='XSS', command=lambda:self.CS(JavaScript.XSS.GUI))
