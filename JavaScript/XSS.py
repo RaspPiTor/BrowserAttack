@@ -1,15 +1,10 @@
 import tkinter.ttk as ttk
 import tkinter as tk
-import random
-import base64
 
-import requests
-import bs4
 
 class GUI(ttk.Frame):
     def __init__(self, master=None):
-        super().__init__(master)
-        self
+        ttk.Frame.__init__(self, master)
         ttk.Label(self, text='Javascript:').grid(column=0,row=2,sticky='nw')
         self.js=tk.Text(self, height=10)
         self.js.grid(column=1, row=2, sticky='nw')

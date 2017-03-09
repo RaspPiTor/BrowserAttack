@@ -4,7 +4,7 @@ import JavaScript.URL
 import JavaScript.XSS
 class GUI(tk.Tk):
     def __init__(self):
-        super().__init__()
+        tk.Tk.__init__(self)
         menubar=tk.Menu(self)
         self['menu']=menubar
         self.current=JavaScript.XSS.GUI(self)
