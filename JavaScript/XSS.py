@@ -15,6 +15,4 @@ class GUI(ttk.Frame):
     def generate(self):
         self.result.delete('1.0', 'end')
         result=self.js.get("1.0",'end-1c')
-        fakeurl=self.url.get("1.0",'end-1c')
-        result=URL2JS(result, fakeurl=fakeurl)
         self.result.insert('end', result)
