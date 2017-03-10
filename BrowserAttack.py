@@ -1,5 +1,10 @@
-import tkinter.ttk as ttk
-import tkinter as tk
+import sys
+if sys.version_info.major==2:
+    import Tkinter as tk
+    import ttk
+else:
+    import tkinter.ttk as ttk
+    import tkinter as tk
 import JavaScript.URL
 import JavaScript.XSS
 class GUI(tk.Tk):
@@ -18,4 +23,4 @@ class GUI(tk.Tk):
         self.current=function(self)
         self.current.pack(expand=True, fill='both')
     
-GUI()
+GUI().mainloop()

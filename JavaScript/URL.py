@@ -1,5 +1,10 @@
-import tkinter.ttk as ttk
-import tkinter as tk
+import sys
+if sys.version_info.major==2:
+    import Tkinter as tk
+    import ttk
+else:
+    import tkinter.ttk as ttk
+    import tkinter as tk
 import random
 import base64
 def URL2JS(js, fakeurl=''):
