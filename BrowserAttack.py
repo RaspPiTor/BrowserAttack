@@ -17,7 +17,10 @@ class GUI(tk.Tk):
         self.current = URL.GUI(self)
         self.current.pack()
         jsmenu = tk.Menu(menubar)
+        jsmenu.add_command(label='XSS', command=lambda: self.create(XSS.GUI))
+        jsmenu.add_command(label='URL', command=lambda: self.create(URL.GUI))
         menubar.add_cascade(label='JavaScript', menu=jsmenu)
+    def create(self, function):
         #Create Screen
         self.current.destroy()
         self.current = function(self)
