@@ -1,26 +1,26 @@
 import sys
-if sys.version_info.major==2:
+import JavaScript.URL as URL
+import JavaScript.XSS as XSS
+
+if sys.version_info.major == 2:
     import Tkinter as tk
-    import ttk
+    #import ttk
 else:
-    import tkinter.ttk as ttk
+    #import tkinter.ttk as ttk
     import tkinter as tk
-import JavaScript.URL
-import JavaScript.XSS
+
 class GUI(tk.Tk):
     def __init__(self):
         tk.Tk.__init__(self)
-        menubar=tk.Menu(self)
-        self['menu']=menubar
-        self.current=JavaScript.URL.GUI(self)
+        menubar = tk.Menu(self)
+        self['menu'] = menubar
+        self.current = URL.GUI(self)
         self.current.pack()
-        jsmenu=tk.Menu(menubar)
-        jsmenu.add_command(label='XSS', command=lambda:self.CS(JavaScript.XSS.GUI))
-        jsmenu.add_command(label='URL', command=lambda:self.CS(JavaScript.URL.GUI))
+        jsmenu = tk.Menu(menubar)
         menubar.add_cascade(label='JavaScript', menu=jsmenu)
-    def CS(self, function):
+        #Create Screen
         self.current.destroy()
-        self.current=function(self)
+        self.current = function(self)
         self.current.pack(expand=True, fill='both')
-    
+
 GUI().mainloop()
